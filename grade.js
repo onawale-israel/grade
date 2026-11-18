@@ -134,15 +134,47 @@ function concatenate(input1, input2) {
     return input1 + " " + input2;
 }
 console.log(concatenate(a, b))
-
-
-let name = "Israel"
-
-name = "Daniel"
-
+ 
+// Classic Function Declaration
 function greet(name) {
-    return "Hello " + name + "!";
+    return "Hello " + `${name}` + "! " + "\n" + "Nice to meet you " + `${name}` + "!";
+}
+console.log(greet("Israel"));
+
+// Fully hoisted function, Function is called before it's line.
+
+console.log(add(10)); // 10 — works before the declaration
+
+function add(n) {
+  return n + n;
 }
 
-greet(name);
-console.log(greet(name))
+// Function expression.
+
+/*
+The function is created as a value and assigned to a variable. 
+ The variable is hoisted (var) or in the TDZ (let/const), 
+ but the function itself only exists once the assignment line runs
+ */
+
+const greet2 = function(name) {
+    return "How are you doing today " + `${name}` + "?";
+}
+
+console.log(greet2("Israel"))
+
+
+try {
+  console.log(cube(3));
+} catch (error) {
+  console.log(error.name); // "ReferenceError" — `cube` is in the TDZ
+}
+/* There are also other types of error handling like error.message and error.stack */
+/* throw new Error("This is an error message");
+ is another way to add your custom error message. */
+
+const cube = function (n) {
+  return n ** 3;
+};
+
+console.log(cube(3)); // 27
