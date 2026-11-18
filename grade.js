@@ -134,3 +134,15 @@ function concatenate(input1, input2) {
     return input1 + " " + input2;
 }
 console.log(concatenate(a, b))
+
+
+let name = "Israel"
+
+name = "Daniel"
+
+function greet(name) {
+    return "Hello " + name + "!";
+}
+
+greet(name);
+console.log(greet(name))
